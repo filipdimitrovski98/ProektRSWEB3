@@ -1,0 +1,56 @@
+﻿@model Project_1_Final.ViewModels.StudentListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<h3>@Html.DisplayFor(model => model.Student.FullName )</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().Course.Title )
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().Course.Credits )
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().Course.Semester )
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().Course.Programme )
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().Course.EducationLevel )
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Enrollments )
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.Title )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.Credits )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.Semester )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.Programme )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.EducationLevel )
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Attach" asp-route-id="@item.Id">Attach</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

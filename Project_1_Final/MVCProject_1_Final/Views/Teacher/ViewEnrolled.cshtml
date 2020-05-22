@@ -1,0 +1,96 @@
+﻿@model Project_1_Final.ViewModels.ViewEnrolledViewModel
+@{
+    ViewData["Title"] = "ViewEnrolled";
+}
+
+<h1>ViewEnrolled</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().Grade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().SeminalUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().ProjectUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().ExamPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().SeminalPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().ProjectPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().AdditionalPoints)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Enrollments.First().FinishDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Enrollments)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Student.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Semester)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeminalUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExamPoints)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeminalPoints)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProjectPoints)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdditionalPoints)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FinishDate)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,55 @@
+﻿@model Project_1_Final.ViewModels.TeacherListViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<h3>@Html.DisplayFor(model => model.Teacher.FullName)</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses.First().Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses.First().Credits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses.First().Semester)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses.First().Programme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Courses.First().EducationLevel)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Courses)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Programme)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EducationLevel)
+            </td>
+            <td>
+                <a asp-action="ViewEnrolled" asp-route-id="@item.Id">View Enrolled</a> 
+            </td>
+        </tr>
+
+        }
+    </tbody>
+</table>
